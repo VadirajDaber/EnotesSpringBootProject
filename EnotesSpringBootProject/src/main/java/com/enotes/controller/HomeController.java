@@ -16,6 +16,8 @@ public class HomeController {
 
 	@Autowired
 	private UserService userService;
+	
+	
 	@GetMapping("/")
 	public String index() 
 	{
@@ -51,7 +53,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/login")
+	@GetMapping("/signin")
 	public String login() 
 	{
 		return "login";
