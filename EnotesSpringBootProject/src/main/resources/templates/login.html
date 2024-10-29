@@ -13,12 +13,20 @@
 					<div class="card">
 						<div class="card-header text-center">
 							<h3>Login Page</h3>
+							
+							<th:block th:if="${param.error}">
+								<p class="text-center text-danger fs-5"> [[${session.SPRING_SECURITY_LAST_EXCEPTION.MESSAGE}]]</p>
+							 </th:block>
+							 
+							 <th:block th:if="${param.logout}">
+								<p class="text-center text-success fs-5">Logout Successful </p>
+							 </th:block>
 						</div>
 						<div class="card-body">
-							<form action="loginUser" method="post">
+							<form action="userLogin" method="post">
 								<div class="mb-3">
 									<label>Enter Email</label>
-									<input type="email" name="email" class="form-control">
+									<input type="email" name="username" class="form-control">
 								</div>	
 								
 								<div class="mb-3">
