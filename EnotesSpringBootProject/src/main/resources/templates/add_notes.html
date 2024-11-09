@@ -13,10 +13,15 @@
 					<div class="card">
 						<div class="card-header text-center">
 							<h3>Add Your Notes</h3>
+							
+							<th:block th:if="${session.msg}">
+							<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
+							<th:block th:text="${@userServiceImpl.removeSessionMessage()}">  </th:block>
+							 </th:block>
 						</div>
 						
 						<div class="card-body">
-							<form action="#" method="post">
+							<form action="saveNotes" method="post">
 								<div class="mb-3">
 									<label>Enter Title</label>
 									<input type="text" name="title" class="form-control">

@@ -16,17 +16,17 @@
 						</div>
 						
 						<div class="card-body ">
-							<form action="#" method="post">
+							<form action="/user/updateNotes" method="post">
 								<div class="mb-3">
 									<label>Enter Title</label>
-									<input type="text" name="title" class="form-control">
+									<input type="text" name="title"  class="form-control" th:value="${notes.title}" >
 								</div>
 								
 								<div class="mb-3">
 									<label>Enter Description</label>
-									<textarea rows="6" cols="" class="form-control" name="description"></textarea>
+									<textarea rows="6" cols="" class="form-control" name="description">[[${notes.description}]]</textarea>
 								</div>
-								
+								<input type="hidden" name="id" th:value="${notes.id}">
 								<button class="btn btn-primary mt-4">Update</button>
 							</form>
 						</div>
