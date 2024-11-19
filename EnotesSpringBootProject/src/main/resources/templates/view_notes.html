@@ -38,6 +38,27 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row mt-3">
+
+				<div class="col-md-4 offset-md-1 text-right p-3">
+
+					<p class="fw-bold">Total Notes : [[${totalElements}]]</p>
+				</div>
+				<div class="col-md-5">
+
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li th:if="${currentPage!=0}" class="page-item"><a class="page-link" th:href="@{'/user/viewNotes?pageNo='+${currentPage-1}}">Previous</a></li>
+							
+							<li class="page-item" th:each="i:${#numbers.sequence(1,totalPages)}" th:classappend="${currentPage==i-1 ? 'active' : ''}" ><a class="page-link" th:href="@{'/user/viewNotes?pageNo='+${i-1}}"  >[[${i}]]</a></li>
+							
+							<li th:if="${currentPage+1!=totalPages}" class="page-item"><a class="page-link" th:href="@{'/user/viewNotes?pageNo='+${currentPage+1}}">Next</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</div>
 		</div>
 	</section>
 </body>
